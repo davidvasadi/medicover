@@ -1,0 +1,21 @@
+/* Design variables */
+
+:root {
+  /* Colors */
+
+  --color-bg-top: #7cb9e8;
+  --color-bg-bottom: #a3d4fa;
+  --color-text: #ffffff;
+  --color-line: rgb(255 255 255 / 50%);
+
+  /* Typography - Inter 400 */
+  --font-family: "Inter", system-ui, sans-serif;
+  --font-size-label: 12px;
+  --font-size-condition: 16px;
+  --font-size-row: 20px;
+  --font-size-temp: 48px;
+
+  /* Chart and modal border */
+  --radius-card: 25px;
+  --border-card: 2px solid var(--color-text);
+}

@@ -1,0 +1,41 @@
+/* Base styles */
+
+@import "./variables.css";
+
+/* Padding and border are included in the element's size */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-family);
+  line-height: 1;
+  color: var(--color-text);
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-top),
+    var(--color-bg-bottom)
+  );
+}
+
+/* Reset default browser spacing */
+h1,
+h2,
+p {
+  margin: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Buttons inherit the surrounding text style */
+button {
+  font: inherit;
+  color: inherit;
+}
