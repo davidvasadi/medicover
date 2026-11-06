@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Chart } from "@/components/chart/chart";
 import { CitySearchModal } from "@/components/city-search-modal/city-search-modal";
 import { CurrentWeather } from "@/components/current-weather/current-weather";
+import { ForecastList } from "@/components/forecast-list/forecast-list";
 import { useForecast } from "@/hooks/use-forecast";
 import { useSelectedCity } from "@/hooks/use-selected-city";
-import { ForecastList } from "@/components/forecast-list/forecast-list";
 
 // main page
 function App() {
@@ -25,7 +26,12 @@ function App() {
       )}
 
       {/* shows up once the forecast has loaded */}
-      {forecast.data && <ForecastList daily={forecast.data.daily} />}
+      {forecast.data && (
+        <>
+          <ForecastList daily={forecast.data.daily} />
+          <Chart daily={forecast.data.daily} />
+        </>
+      )}
 
       <CitySearchModal
         open={isPickerOpen}
