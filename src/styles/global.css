@@ -9,9 +9,9 @@
   box-sizing: border-box;
 }
 
-/* mobile browsers use this color around the page (status bar, toolbar, overscroll) */
+/* mobile Safari colors the status bar with this, so it matches the top of the gradient */
 html {
-  background: var(--color-bg-bottom);
+  background: var(--color-bg-top);
 }
 
 body {
