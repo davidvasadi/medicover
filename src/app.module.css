@@ -1,0 +1,59 @@
+/* Page layout, mobile first */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: 52px 40px 8px;
+}
+
+.main {
+  display: grid;
+  align-items: start;
+  gap: 64px;
+  width: 100%;
+  max-width: 578px;
+  margin: 0 auto;
+}
+
+.forecast {
+  display: grid;
+  gap: 8px;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 32px;
+  text-align: center;
+  font-size: var(--font-size-label);
+}
+
+/* very narrow phones */
+@media (max-width: 379px) {
+  .page {
+    padding-inline: 24px;
+  }
+}
+
+/* desktop: two columns like the Figma frame */
+@media (min-width: 1024px) {
+  .page {
+    padding: 108px 40px 40px;
+  }
+
+  .main {
+    grid-template-columns: 282px 578px;
+    justify-content: center;
+    gap: 0;
+    max-width: none;
+  }
+
+  .forecast {
+    gap: 68px;
+  }
+
+  .footer {
+    width: 860px;
+    margin-inline: auto;
+    text-align: left;
+  }
+}

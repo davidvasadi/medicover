@@ -47,11 +47,12 @@ export function Chart({ daily }: Props) {
             vertical={false}
             stroke="currentColor"
             strokeOpacity={0.5}
-            // two lines, roughly where the design has them
-            horizontalCoordinatesGenerator={({ height }) => [
-              height * 0.3,
-              height * 0.6,
-            ]}
+            horizontalCoordinatesGenerator={({ width, height }) => {
+              const lines = [height * 0.3, height * 0.6];
+              // the desktop design has a third line near the bottom
+              if (width > 450) lines.push(height * 0.94);
+              return lines;
+            }}
           />
           <YAxis hide domain={[min - range * 0.5, max + range]} />
           <Tooltip cursor={false} content={ChartTooltip} />
