@@ -7,6 +7,7 @@
   --color-bg-bottom: #a3d4fa;
   --color-text: #ffffff;
   --color-line: rgb(255 255 255 / 50%);
+  --bg-gradient: linear-gradient(var(--color-bg-top), var(--color-bg-bottom));
 
   /* Typography - Inter 400 */
   --font-family: "Inter", system-ui, sans-serif;

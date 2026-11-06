@@ -15,11 +15,7 @@ body {
   font-family: var(--font-family);
   line-height: 1;
   color: var(--color-text);
-  background: linear-gradient(
-    180deg,
-    var(--color-bg-top),
-    var(--color-bg-bottom)
-  );
+  background: var(--bg-gradient);
 }
 
 /* Reset default browser spacing */
