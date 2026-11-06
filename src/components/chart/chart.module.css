@@ -8,9 +8,18 @@
 }
 
 .tooltip {
+  display: grid;
+  gap: 4px;
   padding: 6px 10px;
   border-radius: 8px;
   background: rgb(255 255 255 / 20%);
   backdrop-filter: blur(6px);
   font-size: var(--font-size-label);
+}
+
+.condition {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.8;
 }

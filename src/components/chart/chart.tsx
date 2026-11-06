@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import type { Forecast } from "@/api/open-meteo";
 import { formatDay, formatTemp } from "@/lib/format";
+import { getWeather } from "@/lib/weather-codes";
 import styles from "./chart.module.css";
 
 type Props = {
@@ -20,6 +21,7 @@ export function Chart({ daily }: Props) {
   const data = daily.time.map((date, index) => ({
     day: formatDay(date, index),
     max: daily.temperature_2m_max[index],
+    weather: getWeather(daily.weather_code[index]),
   }));
 
   // in the design the line sits in the lower half of the box
@@ -57,10 +59,10 @@ export function Chart({ daily }: Props) {
           <YAxis hide domain={[min - range * 0.5, max + range]} />
           <Tooltip cursor={false} content={ChartTooltip} />
           <Line
-            type="monotone"
+            type="natural"
             dataKey="max"
             stroke="currentColor"
-            strokeWidth={1.5}
+            strokeWidth={1}
             dot={false}
             activeDot={{ r: 4, fill: "currentColor", stroke: "none" }}
           />
@@ -70,14 +72,22 @@ export function Chart({ daily }: Props) {
   );
 }
 
-// small bubble on hover / tap, e.g. "Kedd: 9 °C"
+// small bubble on hover / tap, e.g. "Kedd: 9 °C" and "Eső" below
 function ChartTooltip({ active, payload }: TooltipContentProps) {
   if (!active || !payload?.length) return null;
 
-  const { day, max } = payload[0].payload;
+  const { day, max, weather } = payload[0].payload;
+  const WeatherIcon = weather.icon;
+
   return (
     <div className={styles.tooltip}>
-      {day}: {formatTemp(max)}
+      <p>
+        {day}: {formatTemp(max)}
+      </p>
+      <p className={styles.condition}>
+        <WeatherIcon size={14} weight="fill" aria-hidden />
+        {weather.label}
+      </p>
     </div>
   );
 }
