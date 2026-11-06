@@ -1,0 +1,26 @@
+/* 7-day forecast */
+.title {
+  margin-bottom: 8px;
+  font-size: var(--font-size-label);
+  font-weight: 400;
+}
+
+/* three columns, the middle one stays centered */
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 54px;
+  font-size: var(--font-size-row);
+  font-variant-numeric: tabular-nums; /* digits line up */
+}
+
+.rain {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.temps {
+  justify-self: end;
+}

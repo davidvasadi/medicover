@@ -3,9 +3,12 @@ import { CitySearchModal } from "@/components/city-search-modal/city-search-moda
 import { CurrentWeather } from "@/components/current-weather/current-weather";
 import { useForecast } from "@/hooks/use-forecast";
 import { useSelectedCity } from "@/hooks/use-selected-city";
+import { ForecastList } from "@/components/forecast-list/forecast-list";
 
+// main page
 function App() {
   const { city, selectCity } = useSelectedCity();
+
   // first visit: nothing saved yet, so ask for a city right away
   const [isPickerOpen, setPickerOpen] = useState(city === null);
   const forecast = useForecast(city);
@@ -20,6 +23,9 @@ function App() {
           weatherCode={forecast.data?.current.weather_code}
         />
       )}
+
+      {/* shows up once the forecast has loaded */}
+      {forecast.data && <ForecastList daily={forecast.data.daily} />}
 
       <CitySearchModal
         open={isPickerOpen}
