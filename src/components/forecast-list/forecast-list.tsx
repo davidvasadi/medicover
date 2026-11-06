@@ -13,7 +13,7 @@ export function ForecastList({ daily }: Props) {
     <section>
       <h2 className={styles.title}>7 napos előrejelzés</h2>
 
-      <ul>
+      <ul className={styles.list}>
         {daily.time.map((date, index) => {
           const weather = getWeather(daily.weather_code[index]);
           const WeatherIcon = weather.icon;

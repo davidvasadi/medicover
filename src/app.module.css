@@ -20,11 +20,30 @@
   gap: 8px;
 }
 
+.status {
+  font-size: var(--font-size-label);
+}
+
+.retry {
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .footer {
   margin-top: auto;
   padding-top: 32px;
   text-align: center;
   font-size: var(--font-size-label);
+}
+
+/* phones: a bit less side margin, so the forecast rows fit at 20px */
+@media (max-width: 419px) {
+  .page {
+    padding-inline: 32px;
+  }
 }
 
 /* very narrow phones */

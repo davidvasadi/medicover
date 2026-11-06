@@ -34,6 +34,26 @@ function App() {
             <Chart daily={forecast.data.daily} />
           </div>
         )}
+
+        {forecast.isLoading && <p className={styles.status}>Betöltés…</p>}
+
+        {/* offline: React Query waits and retries by itself once back online */}
+        {forecast.isPaused && (
+          <p className={styles.status}>Nincs internetkapcsolat.</p>
+        )}
+
+        {forecast.isError && (
+          <p className={styles.status}>
+            Nem sikerült betölteni az időjárást.{" "}
+            <button
+              type="button"
+              className={styles.retry}
+              onClick={() => forecast.refetch()}
+            >
+              Újra
+            </button>
+          </p>
+        )}
       </main>
 
       <footer className={styles.footer}>Vasadi Dávid</footer>

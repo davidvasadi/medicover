@@ -19,13 +19,19 @@ export function CitySearchModal({
   onSelect,
 }: Props) {
   const [query, setQuery] = useState("");
-  const { data: cities = [], isFetching, isError } = useCitySearch(query);
+  const {
+    data: cities = [],
+    isFetching,
+    isError,
+    isPaused,
+  } = useCitySearch(query);
   const searchText = query.trim();
 
   // one message at a time under the input
   let status = "";
   if (searchText.length >= 2) {
-    if (isFetching) status = "Keresés…";
+    if (isPaused) status = "Nincs internetkapcsolat.";
+    else if (isFetching) status = "Keresés…";
     else if (isError) status = "Nem sikerült a keresés, próbáld újra.";
     else if (cities.length === 0)
       status = `Nincs találat erre: „${searchText}”`;
