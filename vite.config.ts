@@ -4,6 +4,8 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  // relative paths, so the build also works under /medicover/ on GitHub Pages
+  base: "./",
   plugins: [react()],
   resolve: {
     alias: {
