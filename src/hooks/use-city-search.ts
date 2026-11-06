@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { searchCities } from "../api/open-meteo";
+import { searchCities } from "@/api/open-meteo";
 import { useDebouncedValue } from "./use-debounced-value";
 
 // the API returns nothing useful for a single character

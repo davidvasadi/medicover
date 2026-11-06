@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { City } from "../api/open-meteo";
+import type { City } from "@/api/open-meteo";
 
 const STORAGE_KEY = "weather:city";
 

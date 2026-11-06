@@ -1,17 +1,25 @@
 import { useState } from "react";
-import { CitySearchModal } from "./components/city-search-modal/city-search-modal";
-import { useSelectedCity } from "./hooks/use-selected-city";
+import { CitySearchModal } from "@/components/city-search-modal/city-search-modal";
+import { CurrentWeather } from "@/components/current-weather/current-weather";
+import { useForecast } from "@/hooks/use-forecast";
+import { useSelectedCity } from "@/hooks/use-selected-city";
 
 function App() {
   const { city, selectCity } = useSelectedCity();
   // first visit: nothing saved yet, so ask for a city right away
   const [isPickerOpen, setPickerOpen] = useState(city === null);
+  const forecast = useForecast(city);
 
   return (
     <main>
-      <button type="button" onClick={() => setPickerOpen(true)}>
-        {city?.name ?? "Válassz várost"}
-      </button>
+      {city && (
+        <CurrentWeather
+          cityName={city.name}
+          onCityClick={() => setPickerOpen(true)}
+          temperature={forecast.data?.current.temperature_2m}
+          weatherCode={forecast.data?.current.weather_code}
+        />
+      )}
 
       <CitySearchModal
         open={isPickerOpen}
@@ -25,4 +33,5 @@ function App() {
     </main>
   );
 }
+
 export default App;

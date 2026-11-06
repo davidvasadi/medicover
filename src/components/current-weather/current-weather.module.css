@@ -1,0 +1,32 @@
+/* current weather */
+.current {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.city {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--font-size-label);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+.temp {
+  font-size: var(--font-size-temp);
+}
+
+.condition {
+  font-size: var(--font-size-condition);
+}

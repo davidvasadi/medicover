@@ -1,8 +1,8 @@
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { XIcon } from "@phosphor-icons/react";
-import type { City } from "../../api/open-meteo";
-import { useCitySearch } from "../../hooks/use-city-search";
+import type { City } from "@/api/open-meteo";
+import { useCitySearch } from "@/hooks/use-city-search";
 import styles from "./city-search-modal.module.css";
 
 type Props = {
